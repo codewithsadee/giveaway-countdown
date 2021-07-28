@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+// browser reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // border: 1px solid white;
+}
+
+.container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  background: #000000;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+}
+
+.pattern {
+  position: absolute;
+  top: 50%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  user-select: none;
+  transform: translateY(-50%);
+  z-index: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.15;
+  }
+}
+
+.logo {
+  margin-bottom: 40px;
+  width: 70px;
+  height: 70px;
+  user-select: none;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px #47d4ff);
+    animation: light-effect 1s linear infinite;
+  }
+}
+
+.giveaway-card {
+  position: relative;
+  height: 80%;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 40px;
+  background: #000405;
+  box-shadow: 0 8px 10px -9px #6dddff;
+  z-index: 5;
+
+  .img-box {
+    width: 100%;
+    height: 100%;
+    margin-right: 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+
+    img {
+      height: auto;
+      width: 80%;
+      object-fit: contain;
+    }
+
+    &:hover .prev, &:hover .next{
+      opacity: 1;
+    }
+
+    .prev {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%) rotate(45deg);
+      border-width: 0 0 4px 4px;
+      border-color: #ffffff46;
+      border-style: solid;
+      border-radius: 2px;
+      width: 20px;
+      height: 20px;
+      opacity: 0;
+      cursor: pointer;
+
+      &:hover {
+        border-color: #ffffff85;
+      }
+    }
+
+    .next {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      border-width: 4px 4px 0 0;
+      border-color: #ffffff46;
+      border-style: solid;
+      border-radius: 2px;
+      width: 20px;
+      height: 20px;
+      opacity: 0;
+      cursor: pointer;
+      transform: translateY(-50%) rotate(45deg);
+
+      &:hover {
+        border-color: #ffffff85;
+      }
+    }
+  }
+
+  .content-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .heading {
+
+      h1 {
+        margin-bottom: 10px;
+        font-size: 25px;
+        letter-spacing: 3px;
+        color: #c2e8ff;
+        text-shadow: 0 0 5px #1aa7ff;
+      }
+
+      p {
+        margin-bottom: 30px;
+        font-weight: 600;
+        color: #62c3ffbe;
+        letter-spacing: 2px;
+        // text-shadow: 0 0 3px #7aceff;
+      }
+    }
+
+    .giveaway-detail {
+      margin-bottom: 25px;
+
+      p {
+        color: #99daff6c;
+      }
+    }
+
+    .countdown-box {
+      display: flex;
+      user-select: none;
+
+      .days,.hours,.mins,.secs {
+        height: 70px;
+        min-width: 70px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-right: 15px;
+        background: #00050a;
+        border: 1px solid #89d4ff52;
+        box-shadow: 0 5px 6px -5px #00c3ff;
+
+        .number {
+          font-size: 25px;
+          font-weight: 600;
+          color: #c2e8ff;
+          text-shadow: 0 0 5px #1aa7ff;
+        }
+
+        .label {
+          font-size: 11px;
+          color: #d1eeff;
+        }
+      }
+    }
+  }
+}
+
+// ref: 48L
+@keyframes light-effect {
+  0% {
+    filter: drop-shadow(0 0 10px #47d4ff);
+  }
+
+  49% {
+    filter: drop-shadow(0 0 10px #47d4ff);
+  }
+
+  50% {
+    filter: drop-shadow(0 0 10px #47d4ff00);
+  }
+
+  99% {
+    filter: drop-shadow(0 0 10px #47d4ff00);
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  
+  .giveaway-card {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .img-box {
+      margin: 0 0 30px;
+    }
+  }
+
+}
